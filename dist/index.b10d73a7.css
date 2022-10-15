@@ -1,0 +1,14 @@
+body {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.w_card {
+  width: 25rem;
+  height: 35rem;
+  background-color: #fff;
+}
+
+/*# sourceMappingURL=index.b10d73a7.css.map */
