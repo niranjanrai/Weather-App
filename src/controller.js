@@ -1,3 +1,4 @@
+import InfoView from "./views/InfoView";
 import SearchView from "./views/searchview";
 
 const handleSearch = (event) => {
@@ -7,6 +8,8 @@ const handleSearch = (event) => {
 
 const init = () => {
   SearchView.addSubmitController(handleSearch);
+  // InfoView.renderSpinner();
+  InfoView.renderHTMLElements();
 };
 
 init();
