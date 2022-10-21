@@ -5,12 +5,13 @@ class InfoView {
     this.data = data;
     this.renderHTMLElements();
   }
+
   renderHTMLElements() {
     const data = this.data;
     const basicInfo = document.createElement("div");
     basicInfo.className = "basic_info";
     const icon = document.createElement("img");
-    icon.src = require(`../icons/${data.weather[0].icon}.png`);
+    icon.src = require(`../icons/${data.Weather[0].icon}.png`);
     icon.className = "w_icon";
     basicInfo.append(icon);
     basicInfo.insertAdjacentHTML(
@@ -20,7 +21,6 @@ class InfoView {
         <h3>Clear Sky</h3>
         <h4>234 *F</h4>
       </div>
-
       `
     );
   }
