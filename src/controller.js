@@ -1,4 +1,4 @@
-import { state } from "./modal.";
+import { state } from "./modal";
 import InfoView from "./views/InfoView";
 import SearchView from "./views/searchview";
 import { Modal } from "bootstrap";

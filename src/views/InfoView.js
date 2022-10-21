@@ -1,3 +1,6 @@
+// import { images } from "../icons/*.png";
+// import { images } from "../icons/* .png";
+
 class InfoView {
   container = document.querySelector(".w_info");
 
@@ -8,18 +11,20 @@ class InfoView {
 
   renderHTMLElements() {
     const data = this.data;
+    console.log(images);
     const basicInfo = document.createElement("div");
+    this.container.appendChild(basicInfo);
     basicInfo.className = "basic_info";
     const icon = document.createElement("img");
-    icon.src = require(`../icons/${data.Weather[0].icon}.png`);
+    icon.src = images[data.Weather[0].icon];
     icon.className = "w_icon";
     basicInfo.append(icon);
     basicInfo.insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       `
       <div>
-        <h3>Clear Sky</h3>
-        <h4>234 *F</h4>
+        <h3>${data.Weather[0].description}</h3>
+        <h4> ${data.main.temp} </h4>
       </div>
       `
     );

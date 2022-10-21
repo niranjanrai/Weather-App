@@ -533,7 +533,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"gCE4p":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _modal = require("./modal.");
+var _modal = require("./modal");
 var _infoView = require("./views/InfoView");
 var _infoViewDefault = parcelHelpers.interopDefault(_infoView);
 var _searchview = require("./views/searchview");
@@ -550,9 +550,11 @@ const init = ()=>{
 };
 init();
 
-},{"./views/InfoView":"6eL3k","./views/searchview":"fY2Dw","bootstrap":"h36JB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./modal.":"eSLBl"}],"6eL3k":[function(require,module,exports) {
+},{"./views/InfoView":"6eL3k","./views/searchview":"fY2Dw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./modal":"3xjKI","bootstrap":"h36JB"}],"6eL3k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// import { images } from "../icons/*.png";
+// import { images } from "../icons/* .png";
 class InfoView {
     container = document.querySelector(".w_info");
     render(data) {
@@ -561,16 +563,18 @@ class InfoView {
     }
     renderHTMLElements() {
         const data = this.data;
+        console.log(images);
         const basicInfo = document.createElement("div");
+        this.container.appendChild(basicInfo);
         basicInfo.className = "basic_info";
         const icon = document.createElement("img");
-        icon.src = require(`../icons/${data.Weather[0].icon}.png`);
+        icon.src = images[data.Weather[0].icon];
         icon.className = "w_icon";
         basicInfo.append(icon);
-        basicInfo.insertAdjacentHTML("afterend", `
+        basicInfo.insertAdjacentHTML("beforeend", `
       <div>
-        <h3>Clear Sky</h3>
-        <h4>234 *F</h4>
+        <h3>${data.Weather[0].description}</h3>
+        <h4> ${data.main.temp} </h4>
       </div>
       `);
     }
@@ -625,6 +629,60 @@ class SearchView {
     }
 }
 exports.default = new SearchView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3xjKI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+let state = {
+    coord: {
+        lon: 10.99,
+        lat: 44.34
+    },
+    weather: [
+        {
+            id: 501,
+            main: "Rain",
+            description: "moderate rain",
+            icon: "10d"
+        }, 
+    ],
+    base: "stations",
+    main: {
+        temp: 298.48,
+        feels_like: 298.74,
+        temp_min: 297.56,
+        temp_max: 300.05,
+        pressure: 1015,
+        humidity: 64,
+        sea_level: 1015,
+        grnd_level: 933
+    },
+    visibility: 10000,
+    wind: {
+        speed: 0.62,
+        deg: 349,
+        gust: 1.18
+    },
+    rain: {
+        "1h": 3.16
+    },
+    clouds: {
+        all: 100
+    },
+    dt: 1661870592,
+    sys: {
+        type: 2,
+        id: 2075663,
+        country: "IT",
+        sunrise: 1661834187,
+        sunset: 1661882248
+    },
+    timezone: 7200,
+    id: 3163858,
+    name: "Zocca",
+    cod: 200
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h36JB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -6322,60 +6380,6 @@ var createPopper = /*#__PURE__*/ (0, _createPopperJs.popperGenerator)({
     defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
-},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eSLBl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "state", ()=>state);
-let state = {
-    coord: {
-        lon: 10.99,
-        lat: 44.34
-    },
-    weather: [
-        {
-            id: 501,
-            main: "Rain",
-            description: "moderate rain",
-            icon: "10d"
-        }, 
-    ],
-    base: "stations",
-    main: {
-        temp: 298.48,
-        feels_like: 298.74,
-        temp_min: 297.56,
-        temp_max: 300.05,
-        pressure: 1015,
-        humidity: 64,
-        sea_level: 1015,
-        grnd_level: 933
-    },
-    visibility: 10000,
-    wind: {
-        speed: 0.62,
-        deg: 349,
-        gust: 1.18
-    },
-    rain: {
-        "1h": 3.16
-    },
-    clouds: {
-        all: 100
-    },
-    dt: 1661870592,
-    sys: {
-        type: 2,
-        id: 2075663,
-        country: "IT",
-        sunrise: 1661834187,
-        sunset: 1661882248
-    },
-    timezone: 7200,
-    id: 3163858,
-    name: "Zocca",
-    cod: 200
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["6KagL","gCE4p"], "gCE4p", "parcelRequirebbde")
+},{"./createPopper.js":"cHuNp","./modifiers/eventListeners.js":"hBKsL","./modifiers/popperOffsets.js":"6I679","./modifiers/computeStyles.js":"gDlm2","./modifiers/applyStyles.js":"4iMn4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["6KagL","gCE4p"], "gCE4p", "parcelRequirebbde")
 
 //# sourceMappingURL=index.bafbf13d.js.map
