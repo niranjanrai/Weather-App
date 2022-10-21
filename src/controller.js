@@ -9,7 +9,7 @@ const handleSearch = (event) => {
 const init = () => {
   SearchView.addSubmitController(handleSearch);
   // InfoView.renderSpinner();
-  InfoView.renderHTMLElements();
+  InfoView.render(state);
 };
 
 init();

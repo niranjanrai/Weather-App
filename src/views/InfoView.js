@@ -8,17 +8,19 @@ class InfoView {
   renderHTMLElements() {
     const data = this.data;
     const basicInfo = document.createElement("div");
-    basicInfo.className = "basic_Info";
+    basicInfo.className = "basic_info";
     const icon = document.createElement("img");
     icon.src = require(`../icons/${data.weather[0].icon}.png`);
     icon.className = "w_icon";
     basicInfo.append(icon);
     basicInfo.insertAdjacentHTML(
       "afterend",
-      `<div>
-      <h3>Clear Sky</h3>
-      <h4>234 *F</h4>
+      `
+      <div>
+        <h3>Clear Sky</h3>
+        <h4>234 *F</h4>
       </div>
+
       `
     );
   }
@@ -26,8 +28,8 @@ class InfoView {
   renderSpinner() {
     this.container.innerHTML = `
     <div class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+    <span class="visually-hidden">Loading...</span>
+    </div>
     `;
   }
 }
