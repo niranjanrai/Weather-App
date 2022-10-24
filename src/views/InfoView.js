@@ -1,4 +1,4 @@
-import { images } from "../icons/*.png";
+// import { images } from "../icons/*.png";
 // import { images } from "../icons/* .png";
 
 class InfoView {

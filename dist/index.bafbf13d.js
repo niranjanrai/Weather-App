@@ -550,87 +550,7 @@ const init = ()=>{
 };
 init();
 
-},{"./views/InfoView":"6eL3k","./views/searchview":"fY2Dw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./modal":"3xjKI","bootstrap":"h36JB"}],"6eL3k":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-// import { images } from "../icons/*.png";
-// import { images } from "../icons/* .png";
-class InfoView {
-    container = document.querySelector(".w_info");
-    render(data) {
-        this.data = data;
-        this.renderHTMLElements();
-    }
-    renderHTMLElements() {
-        const data = this.data;
-        console.log(images);
-        const basicInfo = document.createElement("div");
-        this.container.appendChild(basicInfo);
-        basicInfo.className = "basic_info";
-        const icon = document.createElement("img");
-        icon.src = images[data.weather[0].icon];
-        icon.className = "w_icon";
-        basicInfo.append(icon);
-        basicInfo.insertAdjacentHTML("beforeend", `
-      <div>
-        <h3>${data.weather[0].description}</h3>
-        <h4> ${data.main.temp} </h4>
-      </div>
-      `);
-    }
-    renderSpinner() {
-        this.container.innerHTML = `
-    <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-    </div>
-    `;
-    }
-}
-exports.default = new InfoView();
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"fY2Dw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-class SearchView {
-    container = document.querySelector(".search_form");
-    addSubmitController(controller) {
-        if (typeof controller !== "function") throw new TypeError("controller must be function");
-        this.container.addEventListener("submit", controller.bind(this));
-    }
-}
-exports.default = new SearchView();
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3xjKI":[function(require,module,exports) {
+},{"./modal":"3xjKI","./views/InfoView":"6eL3k","./views/searchview":"fY2Dw","bootstrap":"h36JB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3xjKI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -683,6 +603,86 @@ let state = {
     name: "Zocca",
     cod: 200
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"6eL3k":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// import { images } from "../icons/*.png";
+// import { images } from "../icons/* .png";
+class InfoView {
+    container = document.querySelector(".w_info");
+    render(data) {
+        this.data = data;
+        this.renderHTMLElements();
+    }
+    renderHTMLElements() {
+        const data = this.data;
+        console.log(images);
+        const basicInfo = document.createElement("div");
+        this.container.appendChild(basicInfo);
+        basicInfo.className = "basic_info";
+        const icon = document.createElement("img");
+        icon.src = images[data.weather[0].icon];
+        icon.className = "w_icon";
+        basicInfo.append(icon);
+        basicInfo.insertAdjacentHTML("beforeend", `
+      <div>
+        <h3>${data.weather[0].description}</h3>
+        <h4> ${data.main.temp} </h4>
+      </div>
+      `);
+    }
+    renderSpinner() {
+        this.container.innerHTML = `
+    <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+    </div>
+    `;
+    }
+}
+exports.default = new InfoView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fY2Dw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class SearchView {
+    container = document.querySelector(".search_form");
+    addSubmitController(controller) {
+        if (typeof controller !== "function") throw new TypeError("controller must be function");
+        this.container.addEventListener("submit", controller.bind(this));
+    }
+}
+exports.default = new SearchView();
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h36JB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
