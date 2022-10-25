@@ -1,4 +1,4 @@
-// import { images } from "../icons/*.png";
+import { images } from "../icons/*.png";
 // import { images } from "../icons/* .png";
 
 class InfoView {
@@ -11,7 +11,7 @@ class InfoView {
 
   renderHTMLElements() {
     const data = this.data;
-    console.log(images);
+    console.log(data.weather[0].icon, images);
     const basicInfo = document.createElement("div");
     this.container.appendChild(basicInfo);
     basicInfo.className = "basic_info";
